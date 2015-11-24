@@ -2,6 +2,10 @@
 
 Check that your dependencies support your supported engines.
 
+```
+npm install -g npm-check-engines
+```
+
 ## Wait, what?
 
 You specify the supported engines in your [package.json](https://docs.npmjs.com/files/package.json#engines):
