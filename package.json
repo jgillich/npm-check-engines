@@ -1,0 +1,27 @@
+{
+  "name": "npm-check-engines",
+  "version": "1.0.0",
+  "description": "Check that your dependencies support your supported engines",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgillich/npm-check-engines.git"
+  },
+  "author": "Jakob Gillich <jakob@gillich.me>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgillich/npm-check-engines/issues"
+  },
+  "homepage": "https://github.com/jgillich/npm-check-engines#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "lodash": "^3.10.1",
+    "npm": "^3.4.1",
+    "request": "^2.67.0",
+    "semver": "^5.1.0"
+  }
+}
