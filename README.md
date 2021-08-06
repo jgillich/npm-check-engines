@@ -11,8 +11,8 @@ npm install -g npm-check-engines
 You specify the supported engines in your [package.json](https://docs.npmjs.com/files/package.json#engines):
 
 ```
-engines: {
-  node: '>= 4.0'
+"engines": {
+  "node": ">= 4.0"
 }
 ```
 

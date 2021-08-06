@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
-var semver      = require('semver');
-var _           = require('lodash');
-var request     = require('request');
-var npm         = require('npm');
-var colors      = require('colors');
-var config      = require(process.cwd() + '/package.json');
+const colors = require('colors');
+const semver = require('semver');
+const request = require('request');
+const npm = require('npm');
+const config = require(process.cwd() + '/package.json');
 
 console.log(('checking ' + process.cwd() + '/package.json').green);
 
@@ -53,7 +52,7 @@ function engines(required, cb) {
 }
 
 function check(engines, packages, tree, fail) {
-  _.forEach(packages, function (pkg) {
+  for (const pkg of Object.values(packages)) {
     if (pkg.missing) {
       handleErr(new Error('missing package detected, please run npm install first'));
     }
@@ -62,14 +61,15 @@ function check(engines, packages, tree, fail) {
     if (pkg.engines && pkg.engines.node) {
       engines.forEach(function (engine) {
         if (!semver.satisfies(engine, pkg.engines.node)) {
-          console.error(pkgTree + ' does not satisfy engine ' +  engine.green + ' (' + pkg.engines.node.red + ')')
+          console.error(pkgTree + ' does not satisfy engine ' + engine.green + ' (' + pkg.engines.node.red + ')')
           fail = true;
         }
       });
     }
     if (pkg.dependencies) {
-      fail = check(engines, pkg.dependencies, pkgTree  + ' > ', fail) || fail;
+      fail = check(engines, pkg.dependencies, pkgTree + ' > ', fail) || fail;
     }
-  });
+  }
+
   return !!fail;
 }

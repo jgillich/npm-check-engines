@@ -1,6 +1,6 @@
 {
   "name": "npm-check-engines",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Check that your dependencies support your supported engines",
   "main": "index.js",
   "bin": "index.js",
@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/jgillich/npm-check-engines#readme",
   "dependencies": {
-    "colors": "^1.1.2",
-    "lodash": "^3.10.1",
-    "npm": "^3.4.1",
+    "colors": "^1.4.0",
+    "npm": "^6.14.14",
     "request": "^2.67.0",
-    "semver": "^5.1.0"
+    "semver": "^7.3.5"
+  },
+  "engines": {
+    "node": ">= 10.0"
   }
 }
