@@ -3,27 +3,23 @@
 const colors = require('colors');
 const semver = require('semver');
 const request = require('request');
-const npm = require('npm');
-const config = require(process.cwd() + '/package.json');
+const { execFile } = require('child_process');
 
 console.log(('checking ' + process.cwd() + '/package.json').green);
 
-npm.load(config, function (err, npm) {
+execFile('npm', ['ls', '--json', '--all', '--long'], function (err, stdout, stderr) {
   handleErr(err);
-  npm.commands.ls([], true, function (err, root, lite) {
+  const root = JSON.parse(stdout);
+  if (!root.engines || !root.engines.node) {
+    handleErr(new Error('engines.node is not defined'));
+  }
+  engines(root.engines.node, function (err, engines) {
     handleErr(err);
-    if (!root.engines || !root.engines.node) {
-      handleErr(new Error('engines.node is not defined'));
+    if (!check(engines, root.dependencies)) {
+      console.log('no problems detected'.green);
+    } else {
+      process.exit(1);
     }
-
-    engines(root.engines.node, function (err, engines) {
-      handleErr(err);
-      if (!check(engines, root.dependencies)) {
-        console.log('no problems detected'.green);
-      } else {
-        process.exit(1);
-      }
-    });
   });
 });
 
