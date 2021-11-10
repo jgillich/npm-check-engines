@@ -18,7 +18,7 @@ execFile('npm', ['ls', '--json', '--all', '--long'], function (err, stdout, stde
     if (!check(engines, root.dependencies)) {
       console.log('no problems detected'.green);
     } else {
-      process.exit(1);
+      process.exitCode = 1;
     }
   });
 });
