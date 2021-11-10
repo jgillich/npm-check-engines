@@ -19,7 +19,6 @@
   "homepage": "https://github.com/jgillich/npm-check-engines#readme",
   "dependencies": {
     "colors": "^1.4.0",
-    "npm": "^8.1.3",
     "request": "^2.67.0",
     "semver": "^7.3.5"
   },
