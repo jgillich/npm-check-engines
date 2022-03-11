@@ -1,11 +1,12 @@
 {
   "name": "npm-check-engines",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Check that your dependencies support your supported engines",
   "main": "index.js",
   "bin": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -18,12 +19,19 @@
   },
   "homepage": "https://github.com/jgillich/npm-check-engines#readme",
   "dependencies": {
-    "colors": "^1.4.0",
-    "request": "^2.67.0",
-    "semver": "^7.3.5"
+    "chalk": "^5.0.1",
+    "semver": "^7.3.5",
+    "undici": "^4.15.1"
   },
   "engines": {
-    "node": "^12.13.0 || ^14.15.0 || >=16.0.0",
-    "npm": ">=7"
+    "node": "^12.18.0 || ^14.15.0 || >=16.0.0",
+    "npm": ">=6"
+  },
+  "devDependencies": {
+    "@github/prettier-config": "^0.0.4",
+    "eslint": "^8.10.0",
+    "eslint-plugin-github": "^4.3.5",
+    "eslint-plugin-prettier": "^4.0.0",
+    "typescript": "^4.6.2"
   }
 }
