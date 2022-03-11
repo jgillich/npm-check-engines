@@ -2,7 +2,7 @@
 
 Check that your dependencies support your supported engines.
 
-```
+```bash
 npm install -g npm-check-engines
 ```
 
@@ -10,9 +10,11 @@ npm install -g npm-check-engines
 
 You specify the supported engines in your [package.json](https://docs.npmjs.com/files/package.json#engines):
 
-```
-"engines": {
-  "node": ">= 4.0"
+```json
+{
+  "engines": {
+    "node": ">= 4.0"
+  }
 }
 ```
 
