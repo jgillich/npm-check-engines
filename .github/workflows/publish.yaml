@@ -19,7 +19,6 @@ jobs:
         with:
           node-version: lts/*
       - run: npm install
-      - run: npm test
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
